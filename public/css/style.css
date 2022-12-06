@@ -21,7 +21,7 @@ body {
     width: 50%;
 }
 
-form {
+form.login {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -77,3 +77,108 @@ input {
         margin: 2em;
     }
 }
+
+.base-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+}
+
+nav{
+    width: 40vw;
+    height: 100%;
+    background: linear-gradient(180deg, #008395 0%, #0BE1AC 100%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+
+nav > img{
+    width: 55%;
+    margin-left: 3.5em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+    line-height: 2em;
+}
+
+li i{
+    font-size: 2em;
+}
+
+.button {
+    background: #FFFFFF;
+    border-radius: 1em;
+    margin-left: 1em;
+    text-align: center;
+    letter-spacing: 0.7px;
+    color:#008395;
+    padding: 0.2em;
+    width: 60%;
+}
+
+ul{
+    list-style-type: none;
+    color: white;
+    font: normal normal normal 20px/27px Segoe UI;
+    letter-spacing: 0.72px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+    width: calc(100% - 40px);
+    position: relative;
+}
+
+li{
+    text-align: left;
+    margin-bottom: 1em;
+}
+
+li:last-child{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.fa, 
+.fas{
+    width: 1em;
+}
+
+main{
+    width: 40vw;
+    height: 70%;
+    background:#FFFFFF;
+    border-radius: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+h1{
+    text-align: center;
+    font-size: 2em;
+    text-decoration: none;
+    display: inline-block;
+    letter-spacing: 0.7px;
+    color:#008395;
+    padding: 0.2em;
+}
+
+p{
+    text-align: left;
+    font-size: 2em;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 0.5em;
+    letter-spacing: 0.7px;
+    color:#008395;
+    padding: 0.2em;
+    } 
