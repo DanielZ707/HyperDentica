@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <div class="base - container">
+    <div class="base-container">
         <nav>
             <img src="public/img/logo.svg">
             <ul>
@@ -41,22 +41,14 @@
                 Contact
                 <i class="fa-solid fa-address-book"></i>
             </h1>
-            <p>
-                Email:
-                    hyperdenticaclinic@gmail.com
-    
-            </p>
-             
-            <p>
-                Telephone:
-                    093213423
-            </p>
-            <p>
-                Address:
-                    77 Heaven Street
-                    Nowy Sacz City
-                    Postcode: 33-300, Nowy Sacz     
-            </p>    
+            <h2>Email:</h2>
+            <p>hyperdenticaclinic@gmail.com</p>
+            <h3>Telephone:</h3>
+            <p>093213423</p>
+            <h4>Address:</h4>   
+            <p>77 Heaven Street</p>     
+            <p>Nowy Sacz City</p>    
+            <p>33-300, Nowy Sacz</p>    
         </main>
     </div>
 </body>
