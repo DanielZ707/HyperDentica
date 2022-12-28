@@ -2,7 +2,7 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
-    <title>LOGIN PAGE</title>
+    <title>REGISTRATION PAGE</title>
 </head>
 
 <body>
@@ -10,8 +10,8 @@
     <div class="logo">
         <img src="public/img/logo.svg">
     </div>
-    <div class="login-container">
-        <form class="login" action="login" method="POST">
+    <div class="registration-container">
+        <form class="registration" action="register" method="POST">
             <div class="messages">
                 <?php
                 if(isset($messages)){
@@ -21,11 +21,11 @@
                 }
                 ?>
             </div>
+            <input name="name" type="text" placeholder="Name...">
+            <input name="surname" type="text" placeholder="Surname...">
             <input name="email" type="text" placeholder="Email@...">
             <input name="password" type="password" placeholder="Password...">
-            <button type="submit">Log In</button>
-            <button type="submit">I do not have an account yet</button>
-            <button type="submit">I do not remember my password</button>
+            <button type="submit">Register</button>
         </form>
     </div>
 </div>
