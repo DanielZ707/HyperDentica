@@ -4,14 +4,17 @@
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
 
     <script src="https://kit.fontawesome.com/677e68d0e7.js" crossorigin="anonymous"></script>
-    <title>MENU</title>
+    <title>PRICES2 PAGE</title>
 </head>
 
 <body>
 <div class="main-prices2-1">
     <div class="top-prices2">
         <img src="public/img/logo.svg">
-        <a href="#" class="button">Home</a>
+        <div class="prices-previous-button">
+            <a href="http://localhost:8080/prices" class="button">Previous Page</a>
+        </div>
+        <a href="http://localhost:8080/home" class="button">Home</a>
     </div>
     <div class="main-prices2-2">
         <div class="first-half-prices2">
@@ -58,8 +61,8 @@
             </div>
             <div class="braces">
                 <header>Braces</header>
-                <p class="metal-braces">
-                    Metal Braces 2500.00€
+                <p class="damon-braces">
+                    Damon Braces 2500.00€
                 </p>
                 <p class="invisalign">
                     Invisalign 2700.00€
