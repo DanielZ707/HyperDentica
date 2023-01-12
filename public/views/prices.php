@@ -18,7 +18,7 @@
             <div class="dental">
                 <header>Dental Examinations</header>
                 <p class="Routine-dental">
-                    Routine dental Examination 60.00€
+                    Routine Dental Examination 60.00€
                 </p>
                 <p class="child-dental">
                     Child Dental Examination 30.00€
@@ -39,7 +39,7 @@
                     Panoramic X-ray 65.00€
                 </p>
                 <p class="Cone">
-                    Cone Beam CT scan 265.00€
+                    Cone Beam CT Scan 265.00€
                 </p>
             </div>
         </div>
