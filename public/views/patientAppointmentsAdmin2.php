@@ -27,6 +27,7 @@
                         <th>Description</th>
                         <th>Day Of The Week</th>
                         <th>Dentist</th>
+                        <th>Patient</th>
                         <th>Delete</th>
                     </tr>
                     <tr>
@@ -38,6 +39,7 @@
                         <td><?= $appointment->getDescription(); ?></td>
                         <td><?= $appointment->getDayOfTheWeek(); ?></td>
                         <td><?= $appointment->getTheDentistName(); ?></td>
+                        <td><?= $appointment->getPatientName(); ?></td>
                         <td><a href="http://localhost:8080/deleteAppointment?id=<?php echo $appointment->getIdAppointment(); ?>" class="button"><i class="fa-solid fa-trash-can"></i></a></td>
                     </tr>
                 </table>
