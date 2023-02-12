@@ -14,8 +14,8 @@
         <form class="login" action="login" method="POST">
             <div class="messages">
                 <?php
-                if(isset($messages)){
-                    foreach($messages as $message) {
+                if (isset($messages)) {
+                    foreach ($messages as $message) {
                         echo $message;
                     }
                 }
@@ -24,7 +24,9 @@
             <input name="email" type="text" placeholder="Email@...">
             <input name="password" type="password" placeholder="Password...">
             <button type="submit">Log In</button>
-            <button type="button" onclick="location.href='http://localhost:8080/registration'">I do not have an account yet</button>
+            <button type="button" onclick=" location.href='http://localhost:8080/register'">I do not have an account
+                yet
+            </button>
         </form>
     </div>
 </div>

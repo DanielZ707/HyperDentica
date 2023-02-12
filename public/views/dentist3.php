@@ -6,14 +6,14 @@
 </head>
 
 <body>
-<div class="dentist1-page">
+<div class="dentist1-page-b">
     <div class="treatments-left-side">
         <a href="http://localhost:8080/team" class="button">Previous Page</a>
         <div class="dentist1-img">
             <img src="public/img/dentist3.jpeg">
         </div>
     </div>
-    <div class="about-dentist1">
+    <div class="about-dentist1-c">
         <header>Dr Daniel Walter</header>
         <div class="dentist1-text">
             <p>

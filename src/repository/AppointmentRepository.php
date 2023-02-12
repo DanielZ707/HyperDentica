@@ -22,9 +22,113 @@ class AppointmentRepository extends Repository
         }
 
         return new Appointment(
+            $appointment['id'],
+            $appointment['id_user_patient'],
+            $appointment['start_of_appointment'],
+            $appointment['id_user_dentist'],
+            $appointment['date_of_appointment'],
             $appointment['treatment'],
             $appointment['description']
         );
+    }
+
+
+    public function getAppointments(): array
+    {
+        $results = [];
+
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM appointments;
+        ');
+        $stmt->execute();
+        $appointments = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($appointments as $appointment) {
+            $results[] = new Appointment(
+                $appointment['id'],
+                $appointment['id_user_patient'],
+                $appointment['start_of_appointment'],
+                $appointment['id_user_dentist'],
+                $appointment['date_of_appointment'],
+                $appointment['treatment'],
+                $appointment['description']
+            );
+        }
+        foreach ($results as $result) {
+            $stmt = $this->database->connect()->prepare('
+            SELECT u.id, ud.surname FROM users u INNER JOIN users_details ud ON u.id_user_details = ud.id WHERE  u.id =:id;
+        ');
+            $id_patient = $result->getIdUserPatient();
+            $stmt->bindParam(':id', $id_patient, PDO::PARAM_INT);
+            $stmt->execute();
+            $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $result->setPatientName($user[0]["surname"]);
+        }
+
+        return $results;
+    }
+
+    public function getAppointmentsByUserId(int $id): array
+    {
+        $result = [];
+
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM appointments where id_user_patient =:id ;
+        ');
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $appointments = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+        foreach ($appointments as $appointment) {
+            $result[] = new Appointment(
+                $appointment['id'],
+                $appointment['id_user_patient'],
+                $appointment['start_of_appointment'],
+                $appointment['id_user_dentist'],
+                $appointment['date_of_appointment'],
+                $appointment['treatment'],
+                $appointment['description']
+            );
+        }
+
+        return $result;
+    }
+
+    public function getAppointmentsByDentistId(int $id): array
+    {
+        $results = [];
+
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM appointments where id_user_dentist =:id ;
+        ');
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $appointments = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+        foreach ($appointments as $appointment) {
+            $results[] = new Appointment(
+                $appointment['id'],
+                $appointment['id_user_patient'],
+                $appointment['start_of_appointment'],
+                $appointment['id_user_dentist'],
+                $appointment['date_of_appointment'],
+                $appointment['treatment'],
+                $appointment['description']
+            );
+        }
+        foreach ($results as $result) {
+            $stmt = $this->database->connect()->prepare('
+            SELECT u.id, ud.surname FROM users u INNER JOIN users_details ud ON u.id_user_details = ud.id WHERE  u.id =:id;
+        ');
+            $id_patient = $result->getIdUserPatient();
+            $stmt->bindParam(':id', $id_patient, PDO::PARAM_INT);
+            $stmt->execute();
+            $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $result->setPatientName($user[0]["surname"]);
+        }
+        return $results;
     }
 
 
@@ -35,127 +139,10 @@ class AppointmentRepository extends Repository
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         ');
 
-        switch ($appointment->getTreatment()) {
-            case 'Child Dental Examination':
-                $appointment->setPrice(30);
-                $appointment->setEndHourOfAppointment(date('H:i', strtotime($appointment->getStartOfAppointment()) + 1800));
-                break;
-            case 'Routine dental Examination':
-                $appointment->setPrice(60);
-                $appointment->setEndHourOfAppointment(date('H:i', strtotime($appointment->getStartOfAppointment()) + 1800));
-                break;
-            case 'Routine Hygiene Visit':
-                $appointment->setPrice(80);
-                $appointment->setEndHourOfAppointment(date('H:i', strtotime($appointment->getStartOfAppointment()) + 4500));
-                break;
-            case 'Extended Hygiene Visit':
-                $appointment->setPrice(140);
-                $appointment->setEndHourOfAppointment(date('H:i', strtotime($appointment->getStartOfAppointment()) + 6300));
-                break;
-            case 'Panoramic X-ray':
-                $appointment->setPrice(65);
-                $appointment->setEndHourOfAppointment(date('H:i', strtotime($appointment->getStartOfAppointment()) + 900));
-                break;
-            case 'Cone Beam CT Scan':
-                $appointment->setPrice(265);
-                $appointment->setEndHourOfAppointment(date('H:i', strtotime($appointment->getStartOfAppointment()) + 900));
-                break;
-            case 'Aesthetic White Fillings':
-                $appointment->setPrice(120);
-                $appointment->setEndHourOfAppointment(date('H:i', strtotime($appointment->getStartOfAppointment()) + 3600));
-                break;
-            case 'Temporary Fillings':
-                $appointment->setPrice(50);
-                $appointment->setEndHourOfAppointment(date('H:i', strtotime($appointment->getStartOfAppointment()) + 2700));
-                break;
-            case 'Routine Extraction':
-                $appointment->setPrice(200);
-                $appointment->setEndHourOfAppointment(date('H:i', strtotime($appointment->getStartOfAppointment()) + 3600));
-                break;
-            case 'Surgical Extraction':
-                $appointment->setEndHourOfAppointment(date('H:i', strtotime($appointment->getStartOfAppointment()) + 7200));
-                $appointment->setPrice(280);
-                break;
-            case 'Crown Bonded to Metal':
-            case 'Porcelain Bridge':
-                $appointment->setEndHourOfAppointment(date('H:i', strtotime($appointment->getStartOfAppointment()) + 3600));
-                $appointment->setPrice(800);
-                break;
-            case 'Dental Implant and Crown':
-                $appointment->setEndHourOfAppointment(date('H:i', strtotime($appointment->getStartOfAppointment()) + 7200));
-                $appointment->setPrice(2800);
-                break;
-            case 'Implant Porcelain Crown Only':
-                $appointment->setEndHourOfAppointment(date('H:i', strtotime($appointment->getStartOfAppointment()) + 3600));
-                $appointment->setPrice(940);
-                break;
-            case 'Molar Teeth':
-                $appointment->setEndHourOfAppointment(date('H:i', strtotime($appointment->getStartOfAppointment()) + 7200));
-                $appointment->setPrice(700);
-                break;
-            case 'Sinus Lift':
-                $appointment->setEndHourOfAppointment(date('H:i', strtotime($appointment->getStartOfAppointment()) + 9000));
-                $appointment->setPrice(700);
-                break;
-            case 'Guided Bone Regeneration':
-                $appointment->setEndHourOfAppointment(date('H:i', strtotime($appointment->getStartOfAppointment()) + 9000));
-                $appointment->setPrice(530);
-                break;
-            case 'Full Ceramic':
-                $appointment->setEndHourOfAppointment(date('H:i', strtotime($appointment->getStartOfAppointment()) + 9000));
-                $appointment->setPrice(930);
-                break;
-            case 'In-Office Laser Whitening':
-                $appointment->setEndHourOfAppointment(date('H:i', strtotime($appointment->getStartOfAppointment()) + 7200));
-                $appointment->setPrice(550);
-                break;
-            case 'Socket Preservation':
-                $appointment->setEndHourOfAppointment(date('H:i', strtotime($appointment->getStartOfAppointment()) + 3600));
-                $appointment->setPrice(550);
-                break;
-            case 'Anterior Teeth':
-                $appointment->setEndHourOfAppointment(date('H:i', strtotime($appointment->getStartOfAppointment()) + 5400));
-                $appointment->setPrice(570);
-                break;
-            case 'Pre-Molar Teeth':
-                $appointment->setEndHourOfAppointment(date('H:i', strtotime($appointment->getStartOfAppointment()) + 7200));
-                $appointment->setPrice(620);
-                break;
-            case 'Damon Braces':
-                $appointment->setEndHourOfAppointment(date('H:i', strtotime($appointment->getStartOfAppointment()) + 7200));
-                $appointment->setPrice(2500);
-                break;
-            case 'Invisalign':
-                $appointment->setEndHourOfAppointment(date('H:i', strtotime($appointment->getStartOfAppointment()) + 7200));
-                $appointment->setPrice(2700);
-                break;
-            case 'Home Whitening Kit':
-                $appointment->setEndHourOfAppointment(date('H:i', strtotime($appointment->getStartOfAppointment()) + 900));
-                $appointment->setPrice(350);
-                break;
+        if ($appointment->getDescription() == '') {
+            $appointment->setDescription('No Description');
         }
-
-        //TODO you should get this value from logged user session
-        $id_user_patient = 5;
-        $dayoftheweek = date('w', strtotime($appointment->getDateOfAppointment()));
-        switch ($dayoftheweek){
-            case 1:
-                $appointment->setDayOfTheWeek('Monday');
-                break;
-            case 2:
-                $appointment->setDayOfTheWeek('Tuesday');
-                break;
-            case 3:
-                $appointment->setDayOfTheWeek('Wednesday');
-                break;
-            case 4:
-                $appointment->setDayOfTheWeek('Thursday');
-                break;
-            case 5:
-                $appointment->setDayOfTheWeek('Friday');
-                break;
-        }
-
+        $appointment->setIdUserPatient($_SESSION["id"]);
         $stmt->execute([
             $appointment->getDateOfAppointment(),
             $appointment->getTreatment(),
@@ -165,7 +152,49 @@ class AppointmentRepository extends Repository
             $appointment->getDescription(),
             $appointment->getDayOfTheWeek(),
             $appointment->getIdUserDentist(),
-            $id_user_patient
+            $appointment->getIdUserPatient()
         ]);
     }
+    public function deleteAppointment(): array
+    {
+        $id = $_GET['id'];
+        $stmt = $this->database->connect()->prepare('
+            DELETE FROM appointments WHERE id =:id;
+        ');
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $results = [];
+
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM appointments;
+        ');
+        $stmt->execute();
+        $appointments = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($appointments as $appointment) {
+            $results[] = new Appointment(
+                $appointment['id'],
+                $appointment['id_user_patient'],
+                $appointment['start_of_appointment'],
+                $appointment['id_user_dentist'],
+                $appointment['date_of_appointment'],
+                $appointment['treatment'],
+                $appointment['description']
+            );
+        }
+        foreach ($results as $result) {
+            $stmt = $this->database->connect()->prepare('
+            SELECT u.id, ud.surname FROM users u INNER JOIN users_details ud ON u.id_user_details = ud.id WHERE  u.id =:id;
+        ');
+            $id_patient = $result->getIdUserPatient();
+            $stmt->bindParam(':id', $id_patient, PDO::PARAM_INT);
+            $stmt->execute();
+            $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $result->setPatientName($user[0]["surname"]);
+        }
+
+        return $results;
+    }
+
 }

@@ -12,7 +12,7 @@
     <nav>
         <a href="http://localhost:8080/home" class="button">Home</a>
         <img src="public/img/logo.svg">
-        <i class="fa-solid fa-hospital-user"></i>
+        <i class="fa-solid fa-user-nurse"></i>
     </nav>
     <main>
         <section class="appointments">
@@ -26,7 +26,7 @@
                         <th>End Of The Appointment</th>
                         <th>Description</th>
                         <th>Day Of The Week</th>
-                        <th>Dentist</th>
+                        <th>Patient</th>
                     </tr>
                     <tr>
                         <td><?= $appointment->getDateOfAppointment(); ?></td>
@@ -36,7 +36,7 @@
                         <td><?= $appointment->getEndHourOfAppointment(); ?></td>
                         <td><?= $appointment->getDescription(); ?></td>
                         <td><?= $appointment->getDayOfTheWeek(); ?></td>
-                        <td><?= $appointment->getTheDentistName(); ?></td>
+                        <td><?= $appointment->getPatientName(); ?></td>
                     </tr>
                 </table>
             <?php endforeach; ?>
