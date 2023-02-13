@@ -24,7 +24,7 @@
             <i class="fa-solid fa-money-bill"></i>
         </div>
         <div class="home-element">
-            <a href="#" class="button">Book Online</a>
+            <a href="http://localhost:8080/addAppointment" class="button">Book Online</a>
             <i class="fa-solid fa-calendar-days"></i>
         </div>
         <div class="home-last-element">

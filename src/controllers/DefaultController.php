@@ -107,5 +107,15 @@ class DefaultController extends AppController {
         $this->render('veneers');
     }
 
+    public function thanks()
+    {
+        $this->render('thanks');
+    }
+
+    public function addAppointment()
+    {
+        $this->render('addAppointment');
+    }
+
 
 }

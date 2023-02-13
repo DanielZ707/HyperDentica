@@ -27,5 +27,7 @@ Router::get('implants', 'DefaultController');
 Router::get('invisalign', 'DefaultController');
 Router::get('veneers', 'DefaultController');
 Router::get('whitening', 'DefaultController');
+Router::get('thanks', 'DefaultController');
+Router::get('addAppointment', 'AppointmentController');
 Router::post('login', 'SecurityController');
 Router::run($path);
