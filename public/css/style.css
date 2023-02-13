@@ -154,7 +154,7 @@ li:last-child{
 
 main{
     width: 40vw;
-    height: 70%;
+    height: 100%;
     background:#FFFFFF;
     border-radius: 2em;
     display: flex;
@@ -162,7 +162,7 @@ main{
     justify-content: flex-start;
 }
 
-h1{
+h1,h2,h3,h4{
     text-align: center;
     font-size: 2em;
     text-decoration: none;
