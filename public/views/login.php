@@ -24,8 +24,7 @@
             <input name="email" type="text" placeholder="Email@...">
             <input name="password" type="password" placeholder="Password...">
             <button type="submit">Log In</button>
-            <button type="submit">I do not have an account yet</button>
-            <button type="submit">I do not remember my password</button>
+            <button type="button" onclick="location.href='http://localhost:8080/registration'">I do not have an account yet</button>
         </form>
     </div>
 </div>

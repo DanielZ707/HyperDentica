@@ -4,56 +4,60 @@
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
 
     <script src="https://kit.fontawesome.com/677e68d0e7.js" crossorigin="anonymous"></script>
-    <title>MENU</title>
+    <title>THE TEAM PAGE</title>
 </head>
 
 <body>
-<div class="base-container">
-
-    <nav>
-        <img src="public/img/logo.svg">
-        <ul>
-            <li>
-                <a href="#" class="button">The Team</a>
-                <i class="fa-solid fa-people-group"></i>
-            </li>
-            <li>
-                <a href="#" class="button">Treatments</a>
-                <i class="fa-solid fa-file-medical"></i>
-            </li>
-            <li>
-                <a href="#" class="button">Prices</a>
-                <i class="fa-solid fa-money-bill"></i>
-            </li>
-            <li>
-                <a href="#" class="button">Book Online</a>
-                <i class="fa-solid fa-calendar-days"></i>
-            </li>
-            <li>
-                <a href="#" class="button">Log Out</a>
-                <i class="fa-solid fa-right-from-bracket"></i>
-            </li>
-        </ul>
-    </nav>
-    <main>
-        <header>
-            Contact
-            <i class="fa-solid fa-address-book"></i>
-        </header>
-        <div class="contact-1element">
-            <p style="font-weight: bold;">Email:</p>
-            <p>hyperdenticaclinic@gmail.com</p>
+<div class="main-team-1">
+    <div class="main-team-2">
+        <div class="first-column">
+            <div class="first-dentist">
+                <div class="dentist1">
+                    <a href="http://localhost:8080/dentist1">
+                        <img src="public/img/dentist1.jpeg">
+                    </a>
+                </div>
+                <p style="font-weight: bold">
+                    Dr Katherine Chrystal
+                </p>
+            </div>
+            <div class="second-dentist">
+                <div class="dentist2">
+                    <a href="http://localhost:8080/dentist2">
+                        <img src="public/img/dentist2.jpeg">
+                    </a>
+                </div>
+                <p style="font-weight: bold">
+                    Dr Laureen Patella
+                </p>
+            </div>
         </div>
-        <div class="contact-2element">
-            <p style="font-weight: bold;">Telephone:</p>
-            <p>093213423</p>
+        <div class="mid-team">
+            <img src="public/img/logo.svg">
+            <a href="http://localhost:8080/home" class="button">Home</a>
+            <img src="public/img/logo.svg">
         </div>
-        <div class="contact-3element">
-            <p style="font-weight: bold;">Address:</p>
-            <p>77 Heaven Street</p>
-            <p>Nowy Sacz City</p>
-            <p>33-300, Nowy Sacz</p>
+        <div class="second-column">
+            <div class="third-dentist">
+                <div class="dentist3">
+                    <a href="http://localhost:8080/dentist3">
+                        <img src="public/img/dentist3.jpeg">
+                    </a>
+                </div>
+                <p style="font-weight: bold">
+                    Dr Daniel Walter
+                </p>
+            </div>
+            <div class="fourth-dentist">
+                <div class="dentist4">
+                    <a href="http://localhost:8080/dentist4">
+                        <img src="public/img/dentist4.jpeg">
+                    </a>
+                </div>
+                <p style="font-weight: bold">
+                    Dr Peter Morgan
+                </p>
+            </div>
         </div>
-    </main>
+    </div>
 </div>
-</body>

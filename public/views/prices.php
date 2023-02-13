@@ -4,14 +4,14 @@
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
 
     <script src="https://kit.fontawesome.com/677e68d0e7.js" crossorigin="anonymous"></script>
-    <title>MENU</title>
+    <title>PRICES PAGE</title>
 </head>
 
 <body>
 <div class="main-prices-1">
     <div class="top-prices">
         <img src="public/img/logo.svg">
-        <a href="#" class="button">Home</a>
+        <a href="http://localhost:8080/home" class="button">Home</a>
     </div>
     <div class="main-prices-2">
         <div class="first-half-prices">
@@ -68,7 +68,7 @@
                     Porcelain Bridge 800.00€
                 </p>
             </div>
-            <a href="#" class="button">Next Page</a>
+            <a href="http://localhost:8080/prices2" class="button">Next Page</a>
         </div>
     </div>
 </div>
