@@ -799,6 +799,10 @@ form.register {
     height: 80vh;
 }
 
+.about-bridges {
+    height: 72vh;
+}
+
 .about-whitening {
     height: 93vh;
 }
@@ -840,15 +844,15 @@ form.register {
 }
 
 .about-dentist1-b {
-    height: 45vh;
+    height: 50vh;
 }
 
 .about-dentist1-c {
-    height: 48vh;
+    height: 50vh;
 }
 
 .about-dentist1-d {
-    height: 45vh;
+    height: 50vh;
 }
 
 .about-bridges > header, .about-damon > header, .about-check > header, .about-veneers > header, .about-whitening > header, .about-canal > header, .about-crowns > header, .about-implants > header, .about-invisalign > header, .about-hygienist > header, .about-fillings > header, .about-dentist1-a > header, .about-dentist1-b > header, .about-dentist1-c > header, .about-dentist1-d > header {

@@ -38,7 +38,7 @@ class AppointmentRepository extends Repository
         $results = [];
 
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM appointments;
+            SELECT * FROM appointmentsUI;
         ');
         $stmt->execute();
         $appointments = $stmt->fetchAll(PDO::FETCH_ASSOC);
