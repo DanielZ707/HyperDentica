@@ -12,9 +12,15 @@ class DefaultController extends AppController {
 
     public function home()
     {
-        $this->render('home');
+        session_start();
+        if($_SESSION["id"]==5){
+            $this->render('homeAdmin');
+        }elseif ($_SESSION["id"]==1||$_SESSION["id"]==2||$_SESSION["id"]==3||$_SESSION["id"]==4){
+            $this->render('homeDentist');
+        }else{
+            $this->render('home');
+        }
     }
-
     public function dentist1()
     {
         $this->render('dentist1');
@@ -106,16 +112,4 @@ class DefaultController extends AppController {
     {
         $this->render('veneers');
     }
-
-    public function thanks()
-    {
-        $this->render('thanks');
-    }
-
-    public function addAppointment()
-    {
-        $this->render('addAppointment');
-    }
-
-
 }

@@ -23,15 +23,11 @@
             <a href="http://localhost:8080/prices" class="button">Prices</a>
             <i class="fa-solid fa-money-bill"></i>
         </div>
-        <div class="home-element">
-            <a href="http://localhost:8080/addAppointment" class="button">Book Online</a>
-            <i class="fa-solid fa-calendar-check"></i>
-        </div>
         <div class="home-element-2">
             <a href="http://localhost:8080/appointments" class="button">Your Appointments</a>
             <i class="fa-solid fa-calendar-days"></i>
         </div>
-        <div class="home-last-element-patient">
+        <div class="home-last-element-dentist">
             <a href="http://localhost:8080/logout" class="button">Log Out</a>
             <i class="fa-solid fa-right-from-bracket"></i>
         </div>

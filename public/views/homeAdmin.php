@@ -9,7 +9,7 @@
 
 <body>
 <div class="home-container">
-    <div class="first-half-home">
+    <div class="first-half-home-admin">
         <img src="public/img/logo.svg">
         <div class="home-element">
             <a href="http://localhost:8080/team" class="button">The Team</a>
@@ -31,7 +31,11 @@
             <a href="http://localhost:8080/appointments" class="button">Your Appointments</a>
             <i class="fa-solid fa-calendar-days"></i>
         </div>
-        <div class="home-last-element-patient">
+        <div class="home-element">
+            <a href="http://localhost:8080/appointmentsAdmin" class="button">All Appointments</a>
+            <i class="fa-solid fa-calendar-week"></i>
+        </div>
+        <div class="home-last-element-admin">
             <a href="http://localhost:8080/logout" class="button">Log Out</a>
             <i class="fa-solid fa-right-from-bracket"></i>
         </div>

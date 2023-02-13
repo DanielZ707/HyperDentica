@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
 
     <script src="https://kit.fontawesome.com/677e68d0e7.js" crossorigin="anonymous"></script>
-    <title>PATIENT APPOINTMENTS</title>
+    <title>PATIENT APPOINTMENTS ADMIN</title>
 </head>
 
 <body>
@@ -12,12 +12,12 @@
     <nav>
         <a href="http://localhost:8080/home" class="button">Home</a>
         <img src="public/img/logo.svg">
-        <i class="fa-solid fa-hospital-user"></i>
+        <i class="fa-solid fa-user-shield"></i>
     </nav>
     <main>
         <section class="appointments">
             <?php foreach ($appointments as $appointment): ?>
-                <table border="1" cellpadding="5" cellspacing="5" width="100%">
+                <table border = "1" cellpadding = "5" cellspacing = "5" width="100%">
                     <tr>
                         <th>Date Of an Appointment</th>
                         <th>Treatment</th>
@@ -27,6 +27,8 @@
                         <th>Description</th>
                         <th>Day Of The Week</th>
                         <th>Dentist</th>
+                        <th>Patient</th>
+                        <th>Delete</th>
                     </tr>
                     <tr>
                         <td><?= $appointment->getDateOfAppointment(); ?></td>
@@ -37,6 +39,8 @@
                         <td><?= $appointment->getDescription(); ?></td>
                         <td><?= $appointment->getDayOfTheWeek(); ?></td>
                         <td><?= $appointment->getTheDentistName(); ?></td>
+                        <td><?= $appointment->getPatientName(); ?></td>
+                        <td><a href="http://localhost:8080/deleteAppointment?id=<?php echo $appointment->getIdAppointment(); ?>" class="button"><i class="fa-solid fa-trash-can"></i></a></td>
                     </tr>
                 </table>
             <?php endforeach; ?>

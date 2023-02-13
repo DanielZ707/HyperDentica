@@ -13,7 +13,7 @@
             <img src="public/img/dentist4.jpeg">
         </div>
     </div>
-    <div class="about-dentist1">
+    <div class="about-dentist1-d">
         <header>Dr Peter Morgan</header>
         <div class="dentist1-text">
             <p>

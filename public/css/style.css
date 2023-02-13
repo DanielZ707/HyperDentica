@@ -2,7 +2,7 @@ body {
     margin: 0;
 }
 
-.container {
+.container, .container-register {
     width: 100vw;
     height: 100vh;
     background: linear-gradient(180deg, #008395 0%, #0BE1AC 100%);
@@ -11,6 +11,16 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+
+.logoWithPrevious {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 8vh;
+    align-items: center;
+    justify-content: center;
 }
 
 .logo {
@@ -35,12 +45,46 @@ form.login {
     border-radius: 70px;
 }
 
+form.addAppointment {
+    display: flex;
+    font: normal normal normal 1.2em Segoe UI;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+    gap: 4vh;
+    height: 88vh;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 7px 2px rgba(0, 0, 0, 0.8);
+    border-radius: 70px;
+}
+
+.description-class {
+    display: flex;
+    align-items: center;
+}
+
+select {
+    padding: 1em;
+    margin: 1em;
+}
+
+label {
+    margin-left: 2.5vw;
+}
+
+
+.addAppointment > button {
+    margin-left: 10vw;
+}
+
+
 button {
     background: linear-gradient(180deg, #008395 55.73%, #0ADEAB 100%);
     box-shadow: 0px 4px 7px 2px rgba(0, 0, 0, 0.8);
     border-radius: 70px;
 
-    width: 60%;
+    width: 70%;
     border: none;
     color: white;
     margin: 1em;
@@ -56,29 +100,6 @@ input {
     width: 50%;
 }
 
-@media only screen and (max-device-width: 420px) {
-    .container {
-        flex-direction: column;
-    }
-
-    * {
-        font-size: 36px;
-    }
-
-    .login-container, .logo {
-        width: 100%;
-    }
-
-    form {
-        margin: auto;
-    }
-
-    img {
-        height: 15em;
-        margin: 2em;
-    }
-}
-
 .home-container {
     display: flex;
     align-items: center;
@@ -87,7 +108,8 @@ input {
     height: 100vh;
     background: linear-gradient(180deg, #008395 0%, #0BE1AC 100%);
 }
-.first-half-home{
+
+.first-half-home, .first-half-home-admin {
     margin-left: 10vw;
     width: 30vw;
     display: flex;
@@ -97,37 +119,61 @@ input {
     justify-content: center;
 }
 
-.first-half-home > img{
-   width: 20vw;
+.first-half-home-admin > img {
+    width: 16vw;
+    margin-left: 2vw;
+}
+
+.first-half-home > img {
+    width: 20vw;
     margin-bottom: 2vh;
 }
 
-.home-element{
+.home-element, .home-element-2 {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 1vw
+    gap: 1vw;
 }
 
-.home-element > i, .home-last-element > i{
+.home-element > i, .home-element-2 > i, .home-last-element-admin > i, .home-last-element-dentist > i, .home-last-element-patient > i {
     color: white;
     font-size: 2.5em;
 }
 
-.home-last-element{
+.home-last-element-patient {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-top: 10vh;
+    margin-top: 4vh;
     gap: 1vw;
 
 }
 
-.home-element > a, .home-last-element > a{
+.home-last-element-dentist {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6vh;
+    gap: 1vw;
+
+}
+
+.home-last-element-admin {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1vh;
+    gap: 1vw;
+
+}
+
+.home-element > a, .home-element-2 > a, .home-last-element-patient > a, .home-last-element-dentist > a, .home-last-element-admin > a {
     width: 20vw;
-    height: 7vh;
     color: #008395;
     background: #FFFFFF;
     letter-spacing: 0.7px;
@@ -137,6 +183,10 @@ input {
     box-shadow: 0px 4px 7px 2px rgba(0, 0, 0, 0.8);
     font: normal normal normal 1.5em Segoe UI;
     font-weight: bold;
+}
+
+.home-element > a, .home-element-2 > a, .home-last-element-patient > a, .home-last-element-dentist > a, .home-last-element-admin > a {
+    height: 7vh;
 }
 
 
@@ -173,16 +223,14 @@ p {
     margin-bottom: 1.3em;
 }
 
-@media only screen and (max-device-width: 420px) {
-}
 
-
-.main-prices2-1, .main-prices-1, .main-treatments-1, .main-team-1{
+.main-prices2-1, .main-prices-1, .main-treatments-1, .main-team-1 {
     background: linear-gradient(180deg, #008395 55.73%, #0ADEAB 100%);
     width: 100vw;
     height: 100vh;
 }
-.top-prices2, .top-prices{
+
+.top-prices2, .top-prices {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -192,11 +240,11 @@ p {
     width: 100vw;
 }
 
-.top-prices2{
+.top-prices2 {
     gap: 5vw;
 }
 
-.top-treatments{
+.top-treatments {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -206,7 +254,7 @@ p {
     width: 100vw;
 }
 
-.mid-team{
+.mid-team {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -222,16 +270,36 @@ p {
     width: 6vw;
 }
 
-.top-treatments > img{
+.top-treatments > img {
     margin-top: 6vh;
     width: 8vw;
 }
 
-.mid-team > img{
+.mid-team > img {
     width: 8vw;
 }
 
-.top-treatments > a{
+.mid-team > a {
+    color: #008395;
+    background: #FFFFFF;
+    letter-spacing: 0.7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 7px 2px rgba(0, 0, 0, 0.8);
+    font: normal normal normal 1.5em Segoe UI;
+    font-weight: bold;
+}
+
+.mid-team > a {
+    height: 7vh;
+}
+
+.mid-team > a {
+    width: 10vw;
+}
+
+.top-prices2 > a, .top-prices > a, .top-treatments > a {
     width: 10vw;
     height: 7vh;
     color: #008395;
@@ -244,28 +312,9 @@ p {
     font: normal normal normal 1.5em Segoe UI;
     font-weight: bold;
     margin-top: 3vh;
-
 }
 
-.mid-team > a{
-    width: 10vw;
-    height: 7vh;
-    color: #008395;
-    background: #FFFFFF;
-    letter-spacing: 0.7px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 4px 7px 2px rgba(0, 0, 0, 0.8);
-    font: normal normal normal 1.5em Segoe UI;
-    font-weight: bold;
-}
-
-
-.top-prices2 > a, .top-prices > a {
-    width: 10vw;
-    height: 7vh;
-    color: #008395;
+.prices-previous-button > a {
     background: #FFFFFF;
     letter-spacing: 0.7px;
     display: flex;
@@ -277,35 +326,33 @@ p {
     margin-top: 3vh;
 }
 
-.prices-previous-button >a {
+.prices-previous-button > a {
+    color: #008395;
+}
+
+.prices-previous-button > a {
+    height: 7vh;
+}
+
+.prices-previous-button > a {
     width: 15vw;
-    height: 7vh;
-    color: #008395;
-    background: #FFFFFF;
-    letter-spacing: 0.7px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 4px 7px 2px rgba(0, 0, 0, 0.8);
-    font: normal normal normal 1.5em Segoe UI;
-    font-weight: bold;
-    margin-top: 3vh;
 }
-.main-prices2-2, .main-prices-2{
+
+.main-prices2-2, .main-prices-2 {
     display: flex;
     flex-direction: row;
     gap: 6vw;
 }
 
-.main-team-2{
+.main-team-2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
 }
 
-.first-column, .second-column{
+.first-column, .second-column {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -319,14 +366,14 @@ p {
     gap: 10vw;
 }
 
-.first-dentist, .second-dentist, .third-dentist, .fourth-dentist{
+.first-dentist, .second-dentist, .third-dentist, .fourth-dentist {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.first-dentist > p, .second-dentist > p, .third-dentist > p, .fourth-dentist > p{
+.first-dentist > p, .second-dentist > p, .third-dentist > p, .fourth-dentist > p {
     width: 20vw;
     height: 7vh;
     color: white;
@@ -341,14 +388,13 @@ p {
 }
 
 
-
-.dentist1 > a > img, .dentist2 > a >  img, .dentist3 > a > img, .dentist4 > a > img {
+.dentist1 > a > img, .dentist2 > a > img, .dentist3 > a > img, .dentist4 > a > img {
     width: 25vw;
     box-shadow: 0px 4px 7px 2px rgba(0, 0, 0, 0.8);
     border-radius: 5em;
 }
 
-.treatments-left-side > .dentist1-img > img{
+.treatments-left-side > .dentist1-img > img {
     box-shadow: 0px 4px 7px 2px rgba(0, 0, 0, 0.8);
     border-radius: 5em;
 }
@@ -386,7 +432,6 @@ p {
 }
 
 .cosmetic > a, .general > a, .braces2 > a, .hygiene > a {
-    color: #008395;
     background: #FFFFFF;
     letter-spacing: 0.7px;
     display: flex;
@@ -396,6 +441,10 @@ p {
     font: normal normal normal 1.5em Segoe UI;
     font-weight: bold;
     height: 6vh;
+}
+
+.cosmetic > a, .general > a, .braces2 > a, .hygiene > a {
+    color: #008395;
 }
 
 .second-treatments {
@@ -461,7 +510,7 @@ p {
 
 }
 
-.implants > header {
+.implants > header, .braces > header {
     background: linear-gradient(180deg, #008395 55.73%, #0ADEAB 100%);
     width: 15vw;
     height: 7vh;
@@ -474,7 +523,7 @@ p {
     margin-bottom: 1.5vh;
 }
 
-.whitening {
+.whitening, .hygienist, .braces {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -485,45 +534,6 @@ p {
     height: 26vh;
     color: #008395;
     margin-bottom: 2vh;
-}
-
-.whitening > header {
-    background: linear-gradient(180deg, #008395 55.73%, #0ADEAB 100%);
-    width: 25vw;
-    height: 7vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 2em;
-    color: white;
-    box-shadow: 0px 4px 7px 2px rgba(0, 0, 0, 0.8);
-    margin-bottom: 1.5vh;
-}
-
-.braces {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: white;
-    height: 26vh;
-    border-radius: 4em;
-    letter-spacing: 0.7px;
-    color: #008395;
-    margin-bottom: 2vh;
-}
-
-.braces > header {
-    background: linear-gradient(180deg, #008395 55.73%, #0ADEAB 100%);
-    width: 15vw;
-    height: 7vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 2em;
-    color: white;
-    box-shadow: 0px 4px 7px 2px rgba(0, 0, 0, 0.8);
-    margin-bottom: 1.5vh;
 }
 
 .root {
@@ -537,19 +547,6 @@ p {
     height: 33vh;
     color: #008395;
     margin-bottom: 2vh;
-}
-
-.root > header {
-    background: linear-gradient(180deg, #008395 55.73%, #0ADEAB 100%);
-    width: 25vw;
-    height: 7vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 2em;
-    color: white;
-    box-shadow: 0px 4px 7px 2px rgba(0, 0, 0, 0.8);
-    margin-bottom: 1.5vh;
 }
 
 .crowns {
@@ -583,7 +580,6 @@ p {
 }
 
 .dental {
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -596,33 +592,11 @@ p {
     margin-top: 5vh;
 }
 
-.dental > header {
-    background: linear-gradient(180deg, #008395 55.73%, #0ADEAB 100%);
-    width: 25vw;
-    height: 7vh;
+.dental {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 2em;
-    color: white;
-    box-shadow: 0px 4px 7px 2px rgba(0, 0, 0, 0.8);
-    margin-bottom: 1.5vh;
 }
 
-.hygienist {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: white;
-    border-radius: 4em;
-    letter-spacing: 0.7px;
-    height: 26vh;
-    color: #008395;
-    margin-bottom: 2vh;
-}
-
-.hygienist > header {
+.root > header, .x-rays > header, .composite > header, .dental > header, .bridges > header, .extraction > header, .hygienist > header, .whitening > header {
     background: linear-gradient(180deg, #008395 55.73%, #0ADEAB 100%);
     width: 25vw;
     height: 7vh;
@@ -675,20 +649,7 @@ p {
     margin-bottom: 4vh;
 }
 
-.x-rays > header {
-    background: linear-gradient(180deg, #008395 55.73%, #0ADEAB 100%);
-    width: 25vw;
-    height: 7vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 2em;
-    color: white;
-    box-shadow: 0px 4px 7px 2px rgba(0, 0, 0, 0.8);
-    margin-bottom: 1.5vh;
-}
-
-.composite {
+.composite, .extraction {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -699,45 +660,6 @@ p {
     height: 26vh;
     color: #008395;
     margin-bottom: 3vh;
-}
-
-.composite > header {
-    background: linear-gradient(180deg, #008395 55.73%, #0ADEAB 100%);
-    width: 25vw;
-    height: 7vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 2em;
-    color: white;
-    box-shadow: 0px 4px 7px 2px rgba(0, 0, 0, 0.8);
-    margin-bottom: 1.5vh;
-}
-
-.extraction {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: white;
-    border-radius: 4em;
-    letter-spacing: 0.7px;
-    height: 26vh;
-    color: #008395;
-    margin-bottom: 3vh;
-}
-
-.extraction > header {
-    background: linear-gradient(180deg, #008395 55.73%, #0ADEAB 100%);
-    width: 25vw;
-    height: 7vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 2em;
-    color: white;
-    box-shadow: 0px 4px 7px 2px rgba(0, 0, 0, 0.8);
-    margin-bottom: 1.5vh;
 }
 
 .bridges {
@@ -753,29 +675,14 @@ p {
     margin-bottom: 4vh;
 }
 
-.bridges > header {
-    background: linear-gradient(180deg, #008395 55.73%, #0ADEAB 100%);
-    width: 25vw;
-    height: 7vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 2em;
-    color: white;
-    box-shadow: 0px 4px 7px 2px rgba(0, 0, 0, 0.8);
-    margin-bottom: 1.5vh;
-}
-
 .second-half-prices > a {
     width: 12vw;
-    height: 7vh;
     color: #008395;
     background: #FFFFFF;
     letter-spacing: 0.7px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.7em;
     box-shadow: 0px 4px 7px 2px rgba(0, 0, 0, 0.8);
     font: normal normal normal 1.5em Segoe UI;
     font-weight: bold;
@@ -784,23 +691,32 @@ p {
     margin-bottom: 3vh;
 }
 
+.second-half-prices > a {
+    height: 7vh;
+}
+
+.register-container {
+    width: 50%;
+}
+
 .registration-container {
     width: 50%;
 }
 
-form.registration {
+
+form.register {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 80%;
-    height: 50vh;
+    height: 70vh;
     background: #FFFFFF;
     box-shadow: 0px 4px 7px 2px rgba(0, 0, 0, 0.8);
     border-radius: 70px;
 }
 
-.bridges-page, .bridges-page, .canal-page, .check-page, .crowns-page, .damon-page, .fillings-page, .hygienist-page, .implants-page, .invisalign-page, .veneers-page, .whitening-page, .dentist1-page{
+.bridges-page, .bridges-page, .canal-page, .check-page, .crowns-page, .damon-page, .fillings-page, .hygienist-page, .implants-page, .invisalign-page, .veneers-page, .whitening-page, .dentist1-page, .dentist1-page-b {
     width: 100vw;
     height: 100vh;
     background: linear-gradient(180deg, #008395 0%, #0BE1AC 100%);
@@ -818,7 +734,7 @@ form.registration {
     margin-right: 2vw;
 }
 
-.treatments-left-side > img, .treatments-left-side > .dentist1-img > img{
+.treatments-left-side > img, .treatments-left-side > .dentist1-img > img {
     width: 25vw;
     text-align: center;
     margin-left: 5vw;
@@ -826,9 +742,8 @@ form.registration {
     margin-bottom: 17vh;
 }
 
-.treatments-left-side>a{
+.treatments-left-side > a {
     width: 15vw;
-    height: 7vh;
     color: #008395;
     background: #FFFFFF;
     letter-spacing: 0.7px;
@@ -842,67 +757,103 @@ form.registration {
     margin-bottom: 17vh;
 }
 
-.about-bridges, .about-canal, .about-check, .about-crowns, .about-damon, .about-fillings, .about-hygienist, .about-implants, .about-invisalign, .about-veneers, .about-whitening, .about-dentist1 {
+.logoWithPrevious > a {
+    width: 15vw;
+    color: #008395;
+    background: #FFFFFF;
+    letter-spacing: 0.7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 7px 2px rgba(0, 0, 0, 0.8);
+    font: normal normal normal 1.5em Segoe UI;
+    font-weight: bold;
+    height: 7vh;
+}
+
+.treatments-left-side > a {
+    height: 7vh;
+}
+
+.about-bridges, .about-canal, .about-check, .about-crowns, .about-damon, .about-fillings, .about-hygienist, .about-implants, .about-invisalign, .about-veneers, .about-whitening, .about-dentist1-a, .about-dentist1-b, .about-dentist1-c, .about-dentist1-d {
     width: 60vw;
-    height: 73vh;
+    height: 100%;
+
     text-align: justify;
     background: white;
     border-radius: 3em;
     margin-left: 3vw;
     margin-right: 5vw;
+    display: flex;
+    flex-direction: column;
 
 }
 
-.about-veneers{
+.about-veneers {
     height: 80vh;
 }
 
-.about-whitening{
+.about-whitening {
     height: 93vh;
 }
 
-.about-implants{
+.about-implants {
     height: 84vh;
 }
 
-.about-check{
+.about-check {
     height: 55vh;
 }
 
-.about-crowns{
+.about-crowns {
     height: 67vh;
 }
 
-.about-fillings{
+.about-fillings {
     height: 76vh;
 }
 
-.about-canal{
+.about-canal {
     height: 76vh;
 }
 
-.about-hygienist{
+.about-hygienist {
     height: 85vh;
 }
 
-.about-damon{
+.about-damon {
     height: 83vh;
 }
 
-.about-invisalign{
+.about-invisalign {
     height: 62vh;
 }
 
-.about-dentist1{
-    height: 52vh;
+.about-dentist1-a {
+    height: 50vh;
 }
 
-.about-bridges > header, .about-damon > header, .about-check > header, .about-veneers > header, .about-whitening > header, .about-canal > header, .about-crowns > header, .about-implants > header, .about-invisalign > header, .about-hygienist > header, .about-fillings > header, .about-dentist1 > header {
+.about-dentist1-b {
+    height: 45vh;
+}
+
+.about-dentist1-c {
+    height: 48vh;
+}
+
+.about-dentist1-d {
+    height: 45vh;
+}
+
+.about-bridges > header, .about-damon > header, .about-check > header, .about-veneers > header, .about-whitening > header, .about-canal > header, .about-crowns > header, .about-implants > header, .about-invisalign > header, .about-hygienist > header, .about-fillings > header, .about-dentist1-a > header, .about-dentist1-b > header, .about-dentist1-c > header, .about-dentist1-d > header {
     color: white;
     font-size: 3em;
     background: #008395;
     border-radius: 2em;
     height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -912,8 +863,10 @@ form.registration {
     margin-top: 3vh;
 }
 
-.contact-box{
+.contact-box {
     background: white;
+    display: flex;
+    flex-direction: column;
     width: 38vw;
     height: 67vh;
     color: #008395;
@@ -921,11 +874,12 @@ form.registration {
     border-radius: 5em;
 }
 
-.contact-box>header{
+.contact-box > header {
     margin-top: 3vh;
     margin-bottom: 3vh;
 }
-.contact-elements{
+
+.contact-elements {
     margin-left: 5vw;
     display: flex;
     flex-direction: column;
@@ -933,5 +887,562 @@ form.registration {
     gap: 1vh;
 }
 
-.ma
+.no-valid {
+    border: 3px solid red;
+    border-radius: 1em;
+    box-shadow: 0 0 0.2em red;
+    outline: none;
+}
 
+table {
+    table-layout: fixed;
+    width: 94%;
+    height: 90%;
+    border-collapse: collapse;
+    background: white;
+    margin-left: 3vw;
+    margin-top: 8vh;
+    border: none;
+    padding: 5px;
+}
+
+td {
+    text-align: center;
+    font: normal normal normal 1em Segoe UI;
+    font-weight: bold;
+}
+
+.base-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: auto;
+    background: linear-gradient(180deg, #008395 0%, #0BE1AC 100%);
+}
+
+nav {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 17vw;
+
+}
+
+.base-container > nav > i {
+    color: white;
+    width: 10vw;
+    height: 6vh;
+    font-size: 5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav > img {
+    width: 16vw;
+}
+
+.base-container > nav > a {
+    color: #008395;
+    background: #FFFFFF;
+    letter-spacing: 0.7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 7px 2px rgba(0, 0, 0, 0.8);
+    font: normal normal normal 1.5em Segoe UI;
+    font-weight: bold;
+    height: 6vh;
+    width: 10vw;
+}
+
+
+@media only screen and (max-device-width: 420px) {
+    .container, .container-register {
+        flex-direction: column;
+    }
+
+    .container-register {
+        height: 100vh;
+        justify-content: flex-start;
+    }
+
+    .prices-previous-button > a {
+        margin-top: 0;
+    }
+
+    .container-register > .logo > img {
+        margin: 0;
+        width: 60%;
+
+    }
+
+    .register-container {
+        width: 100%;
+        display: flex;
+    }
+
+    .registration-container {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 10%;
+    }
+
+    label {
+        margin-left: 5vw;
+    }
+
+    .logoWithPrevious > .logo > img {
+        height: 10vh;
+        margin: 10% 0 0;
+    }
+
+
+    .logoWithPrevious {
+        gap: 3vh;
+    }
+
+    form.addAppointment {
+        gap: 3vh;
+        width: 90%;
+        height: 100%;
+    }
+
+    textarea {
+        width: 90%;
+    }
+
+    select {
+        margin: 0 0 0 5vw;
+    }
+
+    .ui-1 > input {
+        margin: 0;
+    }
+
+    .ui-2 > input {
+        margin: 0;
+    }
+
+
+    .treatments > select, .dentists > select {
+        width: 80%;
+    }
+
+
+    * {
+        font-size: 36px;
+    }
+
+    .treatments, .dentists {
+        display: flex;
+        flex-direction: column;
+        gap: 1vh;
+    }
+
+    .logoWithPrevious > .prices-previous-button {
+        margin-bottom: 2vh;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    form.login{
+        height: 46vh;
+    }
+    .home-element-2>a{
+        height:10vh;
+    }
+
+    .addAppointment > button {
+        margin: 0 13.5vw 2vh;
+    }
+
+    .login-container, .logo {
+        width: 100%;
+    }
+
+    .login-container {
+        display: flex;
+    }
+
+    .home-container {
+        flex-direction: column;
+        width: 100vw;
+        height: 100%;
+    }
+
+    .first-half-home-admin, .first-half-home {
+        margin-left: 0;
+        width: 100vw;
+    }
+
+    .first-half-home > img, .first-half-home-admin > img {
+        margin: 7vh 20vw 3vh 20vw;
+        width: 60vw;
+        height: 17vh;
+    }
+
+    .home-element > a, .home-element-2 > a, .home-last-element-admin > a, .home-last-element-patient > a, .home-last-element-dentist > a {
+        width: 50vw;
+        margin-left: 22vw;
+    }
+
+    .home-last-element-dentist, .home-last-element-patient, .home-last-element-admin, .home-element, .home-element-2 {
+        gap: 4vw;
+    }
+
+    .first-column, .second-column {
+        flex-direction: column;
+        gap: 5vw;
+    }
+
+    .dentist1 > a > img, .dentist2 > a > img, .dentist3 > a > img, .dentist4 > a > img, .treatments-left-side > .dentist1-img > img {
+        width: 80vw;
+        margin: 5vh 10vw 2vh;
+    }
+
+    .dentist2 > a > img, .dentist3 > a > img {
+        width: 80vw;
+        margin: 3vh 10vw 2vh;
+    }
+
+    .treatments-left-side > a {
+        width: 44vw;
+        height: 100%;
+        padding: 4vw;
+        margin: 10% 24vw 7%;
+    }
+
+
+    .first-dentist > p, .second-dentist > p, .third-dentist > p, .fourth-dentist > p {
+        width: 70vw;
+        margin-top: 0;
+        margin-bottom: 2vh;
+    }
+
+    .fourth-dentist > p {
+        margin-bottom: 5vh;
+    }
+
+    .mid-team {
+        margin-top: 5vh;
+        margin-bottom: 2vh;
+        width: 100vw;
+    }
+
+    .mid-team > a {
+        width: 38vw;
+    }
+
+    .mid-team > img {
+        width: 20vw;
+        margin: 0 5vw 0 5vw;
+    }
+
+    .dentist1-page, .dentist1-page-b {
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .description-class {
+        margin-top: 2vh;
+    }
+
+    .about-dentist1-a, .about-dentist1-b, .about-dentist1-c, .about-dentist1-d {
+        height: 100%;
+        width: 90vw;
+        margin-left: 5vw;
+        margin-right: 5vw;
+        border-radius: 6em;
+        margin-bottom: 10%;
+    }
+
+    .dentist1-text {
+        margin: 0 5vw 7%;
+        text-align: justify;
+    }
+
+    .about-dentist1-a > header, .about-dentist1-b > header, .about-dentist1-c > header, .about-dentist1-d > header {
+        height: 100%;
+        padding: 4vw 2vw;
+    }
+
+    .main-team-1 {
+        height: 100%;
+    }
+
+    .main-team-2 {
+        height: 100%;
+    }
+
+    form {
+        margin: auto;
+    }
+
+    img {
+        height: 15em;
+        margin: 2em;
+    }
+
+    .contact-box {
+        width: 84vw;
+        height: 100%;
+        margin-bottom: 10%;
+    }
+
+    .main-treatments-1 {
+        height: 100%;
+    }
+
+    .main-treatments-2 {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .first-treatments, .second-treatments, .third-treatments {
+        margin: 0;
+        width: 100vw;
+    }
+
+    .top-treatments {
+        height: 100%;
+        gap: 8vw;
+    }
+
+    .top-treatments > a {
+        margin: 10% 0 0;
+        height: 100%;
+        width: 20vw;
+        padding: 3vw 7vw;
+
+    }
+
+    .top-prices, .top-prices2 {
+        flex-direction: column;
+        height: 100%;
+        gap: 10%;
+    }
+
+    .top-treatments > img {
+        width: 22vw;
+        height: 100%;
+        margin: 10% 0 0;
+    }
+
+    nav > img {
+        width: 50vw;
+    }
+
+    table {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        table-layout: auto;
+    }
+
+    tbody {
+        display: flex;
+        flex-direction: row;
+        width: 94vw;
+    }
+
+    tr {
+        display: flex;
+        flex-direction: column;
+        width: 94vw;
+    }
+
+    th, td {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font: normal normal normal 1em Segoe UI;
+        height: 8vh;
+    }
+
+    .base-container {
+        min-height: 100vh;
+        height: 100%;
+    }
+
+    .appointments {
+        margin-bottom: 10%;
+    }
+
+    nav > img {
+        margin: 0;
+    }
+
+    nav {
+        margin-top: 10%;
+        gap: 4vh;
+    }
+
+    .top-prices > img, .top-prices2 > img {
+        width: 40vw;
+        height: 100%;
+        margin: 10% 0 0;
+    }
+
+    .top-prices > a, .top-prices2 > a, .base-container > nav > a {
+        height: 7vh;
+        width: 38vw;
+    }
+
+    .prices-previous-button > a {
+        height: 7vh;
+        width: 48vw;
+    }
+
+    .second-half-prices > a {
+        height: 7vh;
+        width: 38vw;
+    }
+
+    .cosmetic {
+        width: 100%;
+        margin-bottom: 0;
+        margin-top: 4vh;
+    }
+
+    .general {
+        width: 100%;
+        margin-bottom: 0;
+        margin-top: 5vh;
+    }
+
+    .braces2 {
+        width: 100%;
+        margin-bottom: 10%;
+    }
+
+    .hygiene {
+        margin-top: 5vh;
+        width: 100%;
+    }
+
+    .cosmetic > a, .general > a, .hygiene > a, .braces2 > a {
+        width: 70%;
+    }
+
+    .cosmetic > header, .general > header, .hygiene > header, .braces2 > header {
+        height: 100%;
+        width: 70%;
+        padding: 5%;
+    }
+
+    .cosmetic > img, .general > img, .braces2 > img {
+        width: 80%;
+        margin: 0;
+    }
+
+    .bridges-page, .canal-page, .check-page, .crowns-page, .damon-page, .fillings-page, .hygienist-page, .implants-page, .invisalign-page, .veneers-page, .whitening-page {
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .bridges-page > .treatments-left-side > img, .bridges-page > .treatments-left-side > img, .canal-page > .treatments-left-side > img, .check-page > .treatments-left-side > img, .crowns-page > .treatments-left-side > img, .damon-page > .treatments-left-side > img, .fillings-page > .treatments-left-side > img, .hygienist-page > .treatments-left-side > img, .implants-page > .treatments-left-side > img, .invisalign-page > .treatments-left-side > img, .veneers-page > .treatments-left-side > img, .whitening-page > .treatments-left-side > img {
+        margin: 0 25vw;
+        width: 50vw;
+    }
+
+    .bridges-page > .treatments-left-side > a, .bridges-page > .treatments-left-side > a, .canal-page > .treatments-left-side > a, .check-page > .treatments-left-side > a, .crowns-page > .treatments-left-side > a, .damon-page > .treatments-left-side > a, .fillings-page > .treatments-left-side > a, .hygienist-page > .treatments-left-side > a, .implants-page > .treatments-left-side > a, .invisalign-page > .treatments-left-side > a, .veneers-page > .treatments-left-side > a, .whitening-page > .treatments-left-side > a {
+        margin-bottom: 2%;
+    }
+
+    .about-bridges, .about-canal, .about-check, .about-crowns, .about-damon, .about-fillings, .about-hygienist, .about-implants, .about-invisalign, .about-veneers, .about-whitening {
+        height: 100%;
+        width: 90vw;
+        margin-left: 5vw;
+        margin-right: 5vw;
+        border-radius: 6em;
+        margin-bottom: 10%;
+    }
+
+    .bridges-text, .damon-text, .check-text, .canal-text, .crowns-text, .fillings-text, .hygienist-text, .implants-text, .invisalign-text, .veneers-text, .whitening-text {
+        margin: 0 5vw 7%;
+        text-align: justify;
+    }
+
+    .about-bridges > header, .about-damon > header, .about-check > header, .about-veneers > header, .about-whitening > header, .about-canal > header, .about-crowns > header, .about-implants > header, .about-invisalign > header, .about-hygienist > header, .about-fillings > header {
+        height: 100%;
+        padding: 4vw 2vw;
+    }
+
+    .main-prices-1, .main-prices2-1 {
+        height: 100%;
+    }
+
+    .main-prices-2, .main-prices2-2 {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5vh;
+        height: 100%;
+    }
+
+    .first-half-prices, .second-half-prices {
+        margin: 0;
+        width: 92%;
+        align-items: center;
+        gap: 5vh;
+    }
+
+    .first-half-prices2, .second-half-prices2 {
+        margin: 0;
+        width: 98%;
+        align-items: center;
+        gap: 5vh;
+    }
+
+
+    .dental, .x-rays, .hygienist, .composite, .extraction, .bridges, .implants, .crowns, .root, .braces, .whitening {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+    }
+
+    .dental > p, .x-rays > p, .hygienist > p, .composite > p, .extraction > p, .bridges > p, .implants > p, .crowns > p, .root > p, .braces > p, .whitening > p {
+        margin-bottom: 3vh;
+        margin-top: 0;
+    }
+
+    .dental > header, .x-rays > header, .hygienist > header, .composite > header, .extraction > header, .bridges > header, .implants > header, .root > header, .braces > header, .whitening > header {
+        margin-bottom: 3vh;
+        margin-top: 2vh;
+        height: 7vh;
+        width: 80%;
+    }
+
+    .crowns > header {
+        margin-bottom: 3vh;
+        margin-top: 2vh;
+        height: 9vh;
+        width: 80%;
+    }
+
+    .implants {
+        margin-top: 5vh;
+    }
+
+    .dental {
+        margin-top: 5vh;
+    }
+
+
+    .second-half-prices > a {
+        margin: 0 0 10%;
+    }
+
+    .whitening {
+        margin-bottom: 10%;
+    }
+
+}

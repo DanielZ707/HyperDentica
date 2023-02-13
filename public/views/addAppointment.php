@@ -11,7 +11,16 @@
     <script>
         $(function () {
             $("#datepicker-1").datepicker({beforeShowDay: $.datepicker.noWeekends, minDate: 0, dateFormat: 'dd-mm-yy'});
-            $('#timepicker').timepicker({timeFormat: 'HH:mm', interval: 15, minTime: '8', maxTime: '17', startTime: '8', dynamic: false, dropdown: true, scrollbar: true});
+            $('#timepicker').timepicker({
+                timeFormat: 'HH:mm',
+                interval: 15,
+                minTime: '8',
+                maxTime: '17',
+                startTime: '8',
+                dynamic: false,
+                dropdown: true,
+                scrollbar: true
+            });
         });
     </script>
     <title>APPOINTMENT PAGE</title>
@@ -21,11 +30,16 @@
 <div>
     <div>
         <div class="container">
-            <div class="logo">
-                <img src="public/img/logo.svg">
+            <div class="logoWithPrevious">
+                <div class="logo">
+                    <img src="public/img/logo.svg">
+                </div>
+                <div class="prices-previous-button">
+                    <a href="http://localhost:8080/home" class="button">Previous Page</a>
+                </div>
             </div>
             <div class="registration-container">
-                <form action="addAppointment" method="POST" ENCTYPE="multipart/form-data">
+                <form class=addAppointment action="addAppointment" method="POST" ENCTYPE="multipart/form-data">
                     <div class="messages">
                         <?php
                         if (isset($messages)) {
@@ -35,7 +49,7 @@
                         }
                         ?>
                     </div>
-                    <div>
+                    <div class="dentists">
                         <label for="id_user_dentist">Choose a Dentist: </label><select name="id_user_dentist"
                                                                                        id="id_user_dentist">
                             <option value="1">Dr Katherine Chrystal</option>
@@ -44,7 +58,7 @@
                             <option value="4">Dr Peter Morgan</option>
                         </select>
                     </div>
-                    <div>
+                    <div class="treatments">
                         <label for="treatment">Choose a treatment: </label><select name="treatment" id="treatment">
                             <optgroup label="Dental Examinations">
                                 <option value="Routine dental Examination">Routine Dental Examination 60.00€</option>
@@ -96,18 +110,20 @@
                             </optgroup>
                         </select>
                     </div>
-                    <div>
-                        <label for="date_of_appointment">Appointment Date</label>
-                        <input type="text" id="datepicker-1" name="date_of_appointment" required>
+                    <div class="ui-1">
+                        <label for="date_of_appointment">Appointment Date:</label>
+                        <input autocomplete="off" type="text" id="datepicker-1" name="date_of_appointment" required>
                     </div>
-                    <div>
-                        <label for="start_of_appointment">Appointment Time</label>
-                        <input type="text" id="timepicker" name="start_of_appointment" required>
+                    <div class="ui-2">
+                        <label for="start_of_appointment">Appointment Time:</label>
+                        <input autocomplete="off" type="text" id="timepicker" name="start_of_appointment" required>
                     </div>
-                    <label for="description">Description</label>
-                    <label>
-                        <textarea name="description" rows=5 placeholder="description"></textarea>
-                    </label>
+                    <div class="description-class">
+                        <label for="description">Description:</label>
+                        <label>
+                            <textarea name="description" rows=5 cols=50 placeholder="description"></textarea>
+                        </label>
+                    </div>
                     <button type="submit">Send</button>
                 </form>
             </div>
