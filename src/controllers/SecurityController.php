@@ -25,7 +25,6 @@ class SecurityController extends AppController
         }
 
         $email = $_POST['email'];
-        $password = sha1($_POST['password']);
         $user = $this->userRepository->getUser($email);
 
         if (!$user) {
@@ -36,7 +35,7 @@ class SecurityController extends AppController
             return $this->render('login', ['messages' => ['User with this email not exist!']]);
         }
 
-        if ($user->getPassword() !== $password) {
+        if (!password_verify($_POST['password'], $user->getPassword())) {
             return $this->render('login', ['messages' => ['Wrong password!']]);
         }
 
@@ -60,11 +59,24 @@ class SecurityController extends AppController
         $password = $_POST['password'];
         $confirmedPassword = $_POST['confirmedPassword'];
 
+        $uppercase = preg_match('@[A-Z]@', $password);
+        $lowercase = preg_match('@[a-z]@', $password);
+        $number = preg_match('@[0-9]@', $password);
+        $specialChars = preg_match('@[^\w]@', $password);
+
+        if (!$number || strlen($password) > 15 || strlen($password) < 8) {
+            return $this->render('register', ['messages' => ['Password must contain from 8 to 15 characters and one number']]);
+        }
+
         if ($password !== $confirmedPassword) {
             return $this->render('register', ['messages' => ['Please provide proper password']]);
         }
 
-        $user = new User($email, sha1($password), $name, $surname);
+        $options = [
+            'cost' => 12
+        ];
+
+        $user = new User($email, password_hash($password, PASSWORD_BCRYPT, $options), $name, $surname);
         $user->setPhone($phone);
 
         $this->userRepository->addUser($user);
