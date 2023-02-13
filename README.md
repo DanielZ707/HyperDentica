@@ -56,10 +56,7 @@ We offer a lot of services, covering a huge number of types of treatment.
   ![image](https://user-images.githubusercontent.com/92012434/218341575-d83d63d7-1cc3-48d6-a37d-85590fc77550.png)
   ![image](https://user-images.githubusercontent.com/92012434/218341592-92ba5646-a64e-4049-bb7e-9fd23543e8ab.png)
   ![image](https://user-images.githubusercontent.com/92012434/218341604-2f2dcb22-201f-4a87-afa9-8cb130048369.png)
-
-
-  
-
+  ![hyperdentica-ERD](https://user-images.githubusercontent.com/92012434/218574754-ce9a8330-dc7f-46e2-b39a-c0a13436a057.png)
 
 
 
