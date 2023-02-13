@@ -314,6 +314,12 @@ p {
     margin-top: 3vh;
 }
 
+main{
+    margin-bottom: 5vh;
+}
+
+
+
 .prices-previous-button > a {
     background: #FFFFFF;
     letter-spacing: 0.7px;
@@ -914,7 +920,8 @@ td {
 
 .base-container {
     width: 100vw;
-    height: 100vh;
+    height: 100%;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1083,7 +1090,7 @@ nav > img {
     }
 
     .first-half-home > img, .first-half-home-admin > img {
-        margin: 7vh 20vw 3vh 20vw;
+        margin: 5vh 20vw 3vh 20vw;
         width: 60vw;
         height: 17vh;
     }

@@ -50,8 +50,7 @@
                         ?>
                     </div>
                     <div class="dentists">
-                        <label for="id_user_dentist">Choose a Dentist: </label><select name="id_user_dentist"
-                                                                                       id="id_user_dentist">
+                        <label for="id_user_dentist">Choose a Dentist: </label><select name="id_user_dentist" id="id_user_dentist">
                             <option value="1">Dr Katherine Chrystal</option>
                             <option value="2">Dr Laureen Patella</option>
                             <option value="3">Dr Daniel Walter</option>

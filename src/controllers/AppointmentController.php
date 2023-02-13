@@ -18,7 +18,7 @@ class AppointmentController extends AppController
     public function appointmentsAdmin()
     {
         session_start();
-        return $this->render('patientAppointmentsAdmin', ['user' => $_SESSION["id"],
+        return $this->render('patientAppointmentsAdmin2', ['user' => $_SESSION["id"],
             'appointments' => $this->appointmentRepository->getAppointments(),
             'messages' => $this->message]);
     }
@@ -47,7 +47,7 @@ class AppointmentController extends AppController
     {
         session_start();
         if ($this->isPost()) {
-            $appointment = new Appointment($_POST['start_of_appointment'], $_POST['id_user_dentist'], $_POST['date_of_appointment'], $_POST['treatment'], $_POST['description']);
+            $appointment = new Appointment(null,$_SESSION["id"],$_POST['start_of_appointment'], $_POST['id_user_dentist'], $_POST['date_of_appointment'], $_POST['treatment'], $_POST['description']);
             $this->appointmentRepository->addAppointment($appointment);
             if($_SESSION["id"]==5){
                 return $this->render('patientAppointmentsAdmin', ['user' => $_SESSION["id"],
